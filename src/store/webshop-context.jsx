@@ -3,12 +3,14 @@ import { fetchItems } from "../http";
 
 export const WebshopContex = createContext({
   items: [],
+  cart: [],
   addItemToCart: () => {},
   updateItemQuantity: () => {},
 });
 
 export const WebshopContextProvider = ({ children }) => {
   const [items, setItems] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const fetchItemsData = async () => {
@@ -23,10 +25,16 @@ export const WebshopContextProvider = ({ children }) => {
     fetchItemsData();
   }, []);
 
-  console.log(items);
+  const addItemToCart = (id) => {
+    const itemToAdd = items.find((item) => item.id === id);
+
+    setCart((prevCart) => [itemToAdd, ...prevCart]);
+  };
+
   const contextValue = {
-    items: items,
-    addItemToCart: () => {},
+    items,
+    cart,
+    addItemToCart,
     updateItemQuantity: () => {},
   };
 
