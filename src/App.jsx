@@ -1,10 +1,15 @@
-import MainPage from "./components/MainPage";
+import { BrowserRouter } from "react-router-dom";
+import Nav from "./components/Nav";
+import Router from "./components/Router";
 
 function App() {
   return (
-    <>
-      <MainPage />
-    </>
+    <div className="app">
+      <BrowserRouter>
+        <Nav />
+        <Router />
+      </BrowserRouter>
+    </div>
   );
 }
 

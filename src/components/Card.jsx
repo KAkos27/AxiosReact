@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { WebshopContex } from "../store/webshop-context";
+
+import { WebshopContex } from "../contexts/webshop-context";
 
 const Card = ({ image, title, description, price, id }) => {
   const { addItemToCart } = useContext(WebshopContex);
@@ -9,11 +10,11 @@ const Card = ({ image, title, description, price, id }) => {
       <img src={image} />
       <h3>{title}</h3>
       <details>
-        <summary>Leírás</summary>
+        <summary>Description</summary>
         <p>{description}</p>
       </details>
       <strong>$ {price}</strong>
-      <button onClick={() => addItemToCart(id)}>Kosárba</button>
+      <button onClick={() => addItemToCart(id)}>Add to cart</button>
     </div>
   );
 };

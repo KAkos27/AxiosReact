@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { WebshopContex } from "../store/webshop-context";
+
+import { WebshopContex } from "../contexts/webshop-context";
 
 const Cart = () => {
   const { cart } = useContext(WebshopContex);

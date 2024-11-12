@@ -9,3 +9,15 @@ export const fetchItems = async () => {
 
   return data;
 };
+
+export const fetchCategories = async () => {
+  const data = await myAxios.get("/products/categories");
+
+  return data;
+};
+
+export const postItem = async (data) => {
+  const response = await myAxios.post("/products", data);
+
+  return response;
+};
